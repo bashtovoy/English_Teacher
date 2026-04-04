@@ -39,13 +39,19 @@
 
 <!-- Badges -->
 
-[badge-en]: https://img.shields.io/badge/lang-English%20%F0%9F%87%AC%F0%9F%87%A7-white
-[badge-ru]: https://img.shields.io/badge/%D1%8F%D0%B7%D1%8B%D0%BA-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%20%F0%9F%87%B7%F0%9F%87%BA-white
+[badge-en]: https://img.shields.io/badge/lang-English-white
+[badge-ru]: https://img.shields.io/badge/%D1%8F%D0%B7%D1%8B%D0%BA-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-white
+[badge-de]: https://img.shields.io/badge/Sprache-Deutsch-white
+[badge-uk]: https://img.shields.io/badge/%D0%BC%D0%BE%D0%B2%D0%B0-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B0-white
+[badge-fr]: https://img.shields.io/badge/langue-Fran%C3%A7ais-white
 
 <!-- Other -->
 
 [vot-readme-ru]: README-RU.md
 [vot-readme-en]: README-EN.md
+[vot-readme-de]: README-DE.md
+[vot-readme-uk]: README-UK.md
+[vot-readme-fr]: README-FR.md
 [vot-langs]: LANG_SUPPORT.md
 [vot-issues]: https://github.com/ilyhalight/voice-over-translation/issues
 [votjs-link]: https://github.com/FOSWLY/vot.js
@@ -58,6 +64,9 @@
 
 [![en][badge-en]][vot-readme-en]
 [![ru][badge-ru]][vot-readme-ru]
+[![de][badge-de]][vot-readme-de]
+[![uk][badge-uk]][vot-readme-uk]
+[![fr][badge-fr]][vot-readme-fr]
 
 > [!CAUTION]
 > Перед созданием Issues настоятельно рекомендуем ознакомиться с разделом [FAQ][vot-faq] и уже существующими [Issues][vot-issues].
