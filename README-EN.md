@@ -44,8 +44,8 @@
 
 <!-- Other -->
 
-[vot-readme-ru]: README.md
-[vot-readme-en]: README-EN.md
+[vot-readme-ru]: README-RU.md
+[vot-readme-en]: README.md
 [vot-langs]: LANG_SUPPORT.md
 [vot-issues]: https://github.com/ilyhalight/voice-over-translation/issues
 [votjs-link]: https://github.com/FOSWLY/vot.js
