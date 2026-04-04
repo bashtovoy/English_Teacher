@@ -1,8 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/ilyhalight/localize/refs/heads/master/schema.json",
-  "service": "yandexbrowser",
-  "rootPath": "./src/localization",
-  "typesFile": "../types/localization.ts",
-  "withTypes": true,
-  "parseDotNotation": true
-}
