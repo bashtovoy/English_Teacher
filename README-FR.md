@@ -62,11 +62,11 @@
 
 <!-- Content -->
 
-[![ru][badge-ru]][vot-readme-ru]
 [![en][badge-en]][vot-readme-en]
 [![de][badge-de]][vot-readme-de]
-[![uk][badge-uk]][vot-readme-uk]
 [![fr][badge-fr]][vot-readme-fr]
+[![uk][badge-uk]][vot-readme-uk]
+[![ru][badge-ru]][vot-readme-ru]
 
 > [!CAUTION]
 > Avant de créer des Issues, nous vous recommandons fortement de lire la section [FAQ][vot-faq] et les [Issues][vot-issues] existantes.

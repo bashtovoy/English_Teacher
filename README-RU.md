@@ -63,10 +63,10 @@
 <!-- Content -->
 
 [![en][badge-en]][vot-readme-en]
-[![ru][badge-ru]][vot-readme-ru]
 [![de][badge-de]][vot-readme-de]
-[![uk][badge-uk]][vot-readme-uk]
 [![fr][badge-fr]][vot-readme-fr]
+[![uk][badge-uk]][vot-readme-uk]
+[![ru][badge-ru]][vot-readme-ru]
 
 > [!CAUTION]
 > Перед созданием Issues настоятельно рекомендуем ознакомиться с разделом [FAQ][vot-faq] и уже существующими [Issues][vot-issues].
