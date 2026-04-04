@@ -1,5 +1,9 @@
 # Progress — English_Teacher (VOT)
 
+## Latest Update
+- Added `agentWorkflow.md` with Write-back Enforcement instructions
+- Added `Workflow Rules` section to `activeContext.md` with memory bank consistency rule
+
 ## What Works
 - ✅ Voice-over translation on YouTube and other video platforms
 - ✅ Subtitle display with smart layout

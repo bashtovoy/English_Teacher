@@ -19,6 +19,9 @@
 - Memory Bank в корне проекта `memory-bank/`
 - `.qoder/` wiki-документация оставлена (закоммичена)
 
+## Workflow Rules
+- Memory Bank must always be up to date after each task
+
 ## Cleanup Summary (9462aad)
 Удалено 276 файлов (81,301 строк):
 - `voice-over-translation-1.11.2/` — полная копия старой версии (~200 файлов)
