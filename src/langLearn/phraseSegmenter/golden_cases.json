@@ -1,0 +1,196 @@
+[
+    {
+        "id": "merging_short_with_long",
+        "description": "A very short phrase followed by a long translation that actually belongs to the first one.",
+        "phrases": [
+            {
+                "index": 0,
+                "origText": "I love it.",
+                "transText": "Мне кажется атмосфера немного изменилась и дальше еще длинная фраза.",
+                "startMs": 13333,
+                "endMs": 14120,
+                "transStartMs": 13599,
+                "transEndMs": 17590
+            },
+            {
+                "index": 1,
+                "origText": "Normal phrase.",
+                "transText": "Нормальный перевод.",
+                "startMs": 14120,
+                "endMs": 17199,
+                "transStartMs": 17600,
+                "transEndMs": 18904
+            }
+        ]
+    },
+    {
+        "id": "question_spillover",
+        "description": "A question that spills into the next thought in the translation.",
+        "phrases": [
+            {
+                "index": 0,
+                "origText": "Satya, what brings you here to Germany?",
+                "transText": "Сатья, что привело тебя в Германию? Знаете, сегодня у нас в Мюнхене тур по местам,",
+                "startMs": 480,
+                "endMs": 2710,
+                "transStartMs": 480,
+                "transEndMs": 3088
+            },
+            {
+                "index": 1,
+                "origText": "You know, it's our AI tour today in Munich and I'm excited to be here.",
+                "transText": "связанным с искусственным интеллектом, и я очень рад быть здесь.",
+                "startMs": 2720,
+                "endMs": 7301,
+                "transStartMs": 3088,
+                "transEndMs": 7301
+            }
+        ]
+    },
+    {
+        "id": "ted_talk_stress",
+        "description": "A sequence from a real TED Talk (Kelly McGonigal) to test continuous segmentation flow.",
+        "phrases": [
+            {
+                "index": 0,
+                "origText": "I have a confession to make.",
+                "transText": "Я хочу сделать признание,",
+                "startMs": 12000,
+                "endMs": 14000
+            },
+            {
+                "index": 1,
+                "origText": "But first, I want you to make a little confession to me.",
+                "transText": "но сначала я хочу, чтобы вы кое в чём мне признались.",
+                "startMs": 16000,
+                "endMs": 23000
+            },
+            {
+                "index": 2,
+                "origText": "In the past year, I want you to just raise your hand",
+                "transText": "Я хочу, чтобы подняли руки те,",
+                "startMs": 23000,
+                "endMs": 26000
+            },
+            {
+                "index": 3,
+                "origText": "if you've experienced relatively little stress.",
+                "transText": "кто в последнее время пережил немного стресса.",
+                "startMs": 26000,
+                "endMs": 29000
+            },
+            {
+                "index": 4,
+                "origText": "Anyone?",
+                "transText": "Кто-нибудь?",
+                "startMs": 29000,
+                "endMs": 32000
+            },
+            {
+                "index": 5,
+                "origText": "How about a moderate amount of stress?",
+                "transText": "Как насчёт стресса в умеренном количестве?",
+                "startMs": 32000,
+                "endMs": 35000
+            },
+            {
+                "index": 6,
+                "origText": "Who has experienced a lot of stress?",
+                "transText": "Кто пережил много стресса?",
+                "startMs": 35000,
+                "endMs": 38000
+            },
+            {
+                "index": 7,
+                "origText": "Yeah. Me too.",
+                "transText": "Да. Я тоже.",
+                "startMs": 38000,
+                "endMs": 40000
+            },
+            {
+                "index": 8,
+                "origText": "But that is not my confession.",
+                "transText": "Но это не моё признание.",
+                "startMs": 40000,
+                "endMs": 42000
+            },
+            {
+                "index": 9,
+                "origText": "My confession is this:",
+                "transText": "Моё признание вот в чём:",
+                "startMs": 42000,
+                "endMs": 44000
+            },
+            {
+                "index": 10,
+                "origText": "I am a health psychologist,",
+                "transText": "Я психолог здоровья,",
+                "startMs": 44000,
+                "endMs": 46000
+            },
+            {
+                "index": 11,
+                "origText": "and my mission is to help people be happier and healthier.",
+                "transText": "и моя миссия — помогать людям быть счастливее и здоровее.",
+                "startMs": 46000,
+                "endMs": 51000
+            },
+            {
+                "index": 12,
+                "origText": "But I fear that something I've been teaching",
+                "transText": "Но я боюсь, что то, чему я учила",
+                "startMs": 51000,
+                "endMs": 54000
+            },
+            {
+                "index": 13,
+                "origText": "for the last 10 years is doing more harm than good,",
+                "transText": "последние 10 лет, приносит больше вреда, чем пользы,",
+                "startMs": 54000,
+                "endMs": 59000
+            },
+            {
+                "index": 14,
+                "origText": "and it has to do with stress.",
+                "transText": "и это связано со стрессом.",
+                "startMs": 59000,
+                "endMs": 61000
+            },
+            {
+                "index": 15,
+                "origText": "For years I've been telling people, stress makes you sick.",
+                "transText": "Годами я говорила людям: стресс делает вас больными.",
+                "startMs": 61000,
+                "endMs": 64000
+            },
+            {
+                "index": 16,
+                "origText": "It increases the risk of everything from the common cold",
+                "transText": "Он увеличивает риск всего, от простуды",
+                "startMs": 64000,
+                "endMs": 67000
+            },
+            {
+                "index": 17,
+                "origText": "to cardiovascular disease.",
+                "transText": "до сердечно-сосудистых заболеваний.",
+                "startMs": 67000,
+                "endMs": 70000
+            },
+            {
+                "index": 18,
+                "origText": "Basically, I've turned stress into the enemy.",
+                "transText": "По сути, я превратила стресс во врага.",
+                "startMs": 70000,
+                "endMs": 74000
+            },
+            {
+                "index": 19,
+                "origText": "But I have changed my mind about stress,",
+                "transText": "Но я изменила своё мнение о стрессе,",
+                "startMs": 74000,
+                "endMs": 77000
+            }
+        ]
+    }
+]
