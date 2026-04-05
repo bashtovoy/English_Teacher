@@ -26,7 +26,15 @@ Use the full project context to plan and execute changes.
 
 ## Completion Protocol
 
-After completing ANY task, ALWAYS update the Memory Bank:
+### CRITICAL RULE (MUST DO FIRST)
+BEFORE calling attempt_completion, you MUST:
+1. Update `memory-bank/progress.md` — add entry at top
+2. Update `memory-bank/activeContext.md` if context changed
+3. THEN call attempt_completion
+
+**Skipping Memory Bank update = FAILED task. Do not skip.**
+
+---
 
 ### Required Updates
 - `memory-bank/progress.md` — Document what was done (add entry at top with date and description)

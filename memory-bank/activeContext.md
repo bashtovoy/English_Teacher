@@ -7,6 +7,7 @@
 - Настроены протоколы поведения агента (startup и completion)
 
 ## Recent Changes
+- Strengthened Memory Bank protocol with explicit "BEFORE attempt_completion" enforcement rule
 - Test task: Memory Bank protocol demonstration completed successfully
 - Created global Cline rules at `~/Documents/Cline/Rules/memory-bank.md` — Memory Bank protocol applies to all projects
 - Created `.clinerules` file to automate agent behavior — agent now automatically reads Memory Bank at session start and updates it after each task
