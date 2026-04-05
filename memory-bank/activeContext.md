@@ -4,8 +4,15 @@
 - Проект в стабильном состоянии, активная разработка не ведётся
 - Memory Bank в корне проекта (`memory-bank/`) с 6 отдельными файлами
 - Репозиторий очищен от мусора (удалено 276 файлов)
+- Настроены протоколы поведения агента (startup и completion)
 
 ## Recent Changes
+- Test task: Memory Bank protocol demonstration completed successfully
+- Created global Cline rules at `~/Documents/Cline/Rules/memory-bank.md` — Memory Bank protocol applies to all projects
+- Created `.clinerules` file to automate agent behavior — agent now automatically reads Memory Bank at session start and updates it after each task
+- Updated `agentWorkflow.md` with official Cline Memory Bank commands and agent workflow protocols
+- Added startup protocol: agent reads Memory Bank files at beginning of each task
+- Added completion protocol: agent updates Memory Bank after completing each task
 - `9462aad` — chore: clean project - remove old version backup, debug logs, and unused demo/test files
 - `4b53f90` — docs: add Memory Bank per Cline documentation
 - `fb8abe3` — docs: add PROJECT_CONTEXT.md and auto-update script
