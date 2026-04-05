@@ -7,6 +7,9 @@
 - Настроены протоколы поведения агента (startup и completion)
 
 ## Recent Changes
+- Created git branches `dev` and `features` for development workflow
+- Studied Cline customization mechanisms (rules, skills, workflows, hooks, clineignore)
+- Identified Hooks (TaskComplete) as the key mechanism for automated Memory Bank control
 - Strengthened Memory Bank protocol with explicit "BEFORE attempt_completion" enforcement rule
 - Test task: Memory Bank protocol demonstration completed successfully
 - Created global Cline rules at `~/Documents/Cline/Rules/memory-bank.md` — Memory Bank protocol applies to all projects
