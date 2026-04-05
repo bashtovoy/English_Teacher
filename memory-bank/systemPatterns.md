@@ -48,3 +48,11 @@
 - **Observer Pattern** — Video observer for detecting video elements
 - **Orchestrator Pattern** — Translation orchestration
 - **Component Pattern** — UI components with lit-html
+
+## Non-negotiable Rule
+
+Memory Bank must be updated after every task.
+
+If progress.md is not updated:
+- the task is incomplete
+- the system is inconsistent

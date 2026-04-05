@@ -1,0 +1,44 @@
+#!/bin/bash
+# TaskStart Hook — Injects Memory Bank context into conversation on task start
+# Ensures agent always has current project state without manually reading files
+# On macOS: must be extensionless and executable (chmod +x)
+
+INPUT=$(cat)
+WORKSPACE=$(echo "$INPUT" | jq -r '.workspaceRoots[0] // empty')
+TASK=$(echo "$INPUT" | jq -r '.taskStart.task // "unknown"')
+
+# If no workspace, skip
+if [[ -z "$WORKSPACE" ]]; then
+    echo '{"cancel":false}'
+    exit 0
+fi
+
+# If no memory-bank directory, skip
+if [[ ! -d "$WORKSPACE/memory-bank" ]]; then
+    echo '{"cancel":false}'
+    exit 0
+fi
+
+ACTIVE_FILE="$WORKSPACE/memory-bank/activeContext.md"
+PROGRESS_FILE="$WORKSPACE/memory-bank/progress.md"
+
+CONTEXT="📋 MEMORY BANK AUTO-LOADED:\n"
+CONTEXT="${CONTEXT}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+
+# Load activeContext.md (first 40 lines)
+if [[ -f "$ACTIVE_FILE" ]]; then
+    ACTIVE=$(head -40 "$ACTIVE_FILE" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+    CONTEXT="${CONTEXT}\n## Active Context:\n${ACTIVE}\n"
+fi
+
+# Load recent progress (first 15 lines — latest entries)
+if [[ -f "$PROGRESS_FILE" ]]; then
+    PROGRESS=$(head -15 "$PROGRESS_FILE" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+    CONTEXT="${CONTEXT}\n## Recent Progress:\n${PROGRESS}\n"
+fi
+
+CONTEXT="${CONTEXT}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+CONTEXT="${CONTEXT}⚠️ REMINDER: You MUST update memory-bank/progress.md and memory-bank/activeContext.md BEFORE completing this task.\n"
+CONTEXT="${CONTEXT}Also read ALL memory-bank/ files for full context if needed."
+
+echo "{\"cancel\":false,\"contextModification\":\"${CONTEXT}\"}"

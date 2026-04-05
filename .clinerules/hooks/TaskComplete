@@ -1,0 +1,55 @@
+#!/bin/bash
+# TaskComplete Hook — Blocks task completion if Memory Bank was not updated
+# Cline runs this when attempt_completion is called
+# On macOS: must be extensionless and executable (chmod +x)
+
+INPUT=$(cat)
+WORKSPACE=$(echo "$INPUT" | jq -r '.workspaceRoots[0] // empty')
+PROGRESS_FILE="$WORKSPACE/memory-bank/progress.md"
+ACTIVE_FILE="$WORKSPACE/memory-bank/activeContext.md"
+
+# If no workspace, skip
+if [[ -z "$WORKSPACE" ]]; then
+    echo '{"cancel":false}'
+    exit 0
+fi
+
+# If no memory-bank directory, skip (not a Memory Bank project)
+if [[ ! -d "$WORKSPACE/memory-bank" ]]; then
+    echo '{"cancel":false}'
+    exit 0
+fi
+
+# Check if progress.md exists
+if [[ ! -f "$PROGRESS_FILE" ]]; then
+    echo '{"cancel":true,"contextModification":"⚠️ MEMORY BANK ERROR: memory-bank/progress.md not found! You MUST create and populate Memory Bank files before completing this task.","errorMessage":"Memory Bank files missing. Create memory-bank/progress.md first."}'
+    exit 0
+fi
+
+# Check if activeContext.md exists
+if [[ ! -f "$ACTIVE_FILE" ]]; then
+    echo '{"cancel":true,"contextModification":"⚠️ MEMORY BANK ERROR: memory-bank/activeContext.md not found! You MUST create and populate Memory Bank files before completing this task.","errorMessage":"Memory Bank files missing. Create memory-bank/activeContext.md first."}'
+    exit 0
+fi
+
+# Check if progress.md was modified in the last 5 minutes (300 seconds)
+MODIFIED=$(stat -f %m "$PROGRESS_FILE" 2>/dev/null || stat -c %Y "$PROGRESS_FILE" 2>/dev/null)
+NOW=$(date +%s)
+DIFF=$(( NOW - MODIFIED ))
+
+if [[ $DIFF -gt 300 ]]; then
+    echo "{\"cancel\":true,\"contextModification\":\"⚠️ MEMORY BANK NOT UPDATED! progress.md was last modified $DIFF seconds ago (more than 5 minutes). You MUST update memory-bank/progress.md and memory-bank/activeContext.md BEFORE completing this task.\\n\\nRequired format for progress.md (add at TOP):\\n## [$(date +%Y-%m-%d)] — Task Name\\n- Changed: what was done\\n- Reason: why\\n- Impact: what it affects\\n\\nAlso update activeContext.md Recent Changes section.\",\"errorMessage\":\"Memory Bank not updated. Update progress.md and activeContext.md first.\"}"
+    exit 0
+fi
+
+# Check if activeContext.md was also updated recently (within 10 minutes)
+ACTIVE_MODIFIED=$(stat -f %m "$ACTIVE_FILE" 2>/dev/null || stat -c %Y "$ACTIVE_FILE" 2>/dev/null)
+ACTIVE_DIFF=$(( NOW - ACTIVE_MODIFIED ))
+
+if [[ $ACTIVE_DIFF -gt 600 ]]; then
+    echo "{\"cancel\":true,\"contextModification\":\"⚠️ activeContext.md was not updated! Last modified $ACTIVE_DIFF seconds ago. Review and update memory-bank/activeContext.md (Recent Changes, Current Focus, Next Steps) before completing the task.\",\"errorMessage\":\"activeContext.md not updated. Review and update it.\"}"
+    exit 0
+fi
+
+# All checks passed
+echo '{"cancel":false,"contextModification":"✅ Memory Bank verified: progress.md and activeContext.md are up to date."}'

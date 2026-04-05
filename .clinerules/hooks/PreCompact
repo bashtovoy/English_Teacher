@@ -1,0 +1,30 @@
+#!/bin/bash
+# PreCompact Hook — Warns agent to save state before context truncation
+# Runs before Auto-Compact or /smol compresses the conversation
+# On macOS: must be extensionless and executable (chmod +x)
+
+INPUT=$(cat)
+WORKSPACE=$(echo "$INPUT" | jq -r '.workspaceRoots[0] // empty')
+TOKENS=$(echo "$INPUT" | jq -r '.preCompact.estimatedTokens // 0')
+
+# If no workspace or no memory-bank, skip
+if [[ -z "$WORKSPACE" ]] || [[ ! -d "$WORKSPACE/memory-bank" ]]; then
+    echo '{"cancel":false}'
+    exit 0
+fi
+
+PROGRESS_FILE="$WORKSPACE/memory-bank/progress.md"
+
+# Check if progress.md was updated recently
+WARN_EXTRA=""
+if [[ -f "$PROGRESS_FILE" ]]; then
+    MODIFIED=$(stat -f %m "$PROGRESS_FILE" 2>/dev/null || stat -c %Y "$PROGRESS_FILE" 2>/dev/null)
+    NOW=$(date +%s)
+    DIFF=$(( NOW - MODIFIED ))
+
+    if [[ $DIFF -gt 300 ]]; then
+        WARN_EXTRA=" progress.md has NOT been updated in this session!"
+    fi
+fi
+
+echo "{\"cancel\":false,\"contextModification\":\"⚠️ CONTEXT COMPACTION IMMINENT (estimated ${TOKENS} tokens). ${WARN_EXTRA} If you have made ANY changes during this session, you MUST update memory-bank/progress.md and memory-bank/activeContext.md NOW before context is lost. This is your LAST CHANCE to persist important information to Memory Bank.\"}"
